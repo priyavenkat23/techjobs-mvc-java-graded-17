@@ -11,28 +11,32 @@
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
-  <table th:each="Job: ${jobs}" class = "job-listing">
-
-      <tr>
-        <td th:text="${'ID: ' + Job.id}"></td>
-      </tr>
-      <tr>
-        <td th:text="${'Name: ' + Job.name}"></td>
-      </tr>
-      <tr >
-        <td th:text="${'Employer: ' + Job.employer}"></td>
-      </tr>
-      <tr>
-        <td th:text="${'Location: ' + Job.location}"></td>
-      </tr>
-      <tr >
-        <td th:text="${'Position Type: ' + Job.positionType}"></td>
-      </tr>
-      <tr>
-        <td th:text="${'Skills: ' + Job.coreCompetency}"></td>
-      </tr>
-    
-  </table>
+    <table class="job-listing" th:each="job : ${jobs}">
+        <tr>
+            <td>ID</td>
+            <td th:text="${job.getId()}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="${job.getName()}"></td>
+        </tr>
+        <tr>
+            <td>Employer</td>
+            <td><a th:href="@{/list/jobs(column=employer,value=${job.getEmployer()})}" th:text="${job.getEmployer()}"></a></td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td><a th:href="@{/list/jobs(column=location,value=${job.getLocation()})}" th:text="${job.getLocation()}"></a></td>
+        </tr>
+        <tr>
+            <td>Position Type</td>
+            <td><a th:href="@{/list/jobs(column=positionType,value=${job.getPositionType()})}" th:text="${job.getPositionType()}"></a></td>
+        </tr>
+        <tr>
+            <td>Skill</td>
+            <td> <a th:href="@{/list/jobs(column=coreCompetency,value=${job.getCoreCompetency()})}" th:text="${job.getCoreCompetency()}"></a></td>
+        </tr>
+    </table>
 
 </div>
 

@@ -16,7 +16,7 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
-public class ListController {
+public class ListController extends TechJobsController{
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
@@ -50,7 +50,7 @@ public class ListController {
     @GetMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam(required = false) String value) {
         ArrayList<Job> jobs;
-        if (column.equals("all")){
+        if (column.toLowerCase().equals("all")){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
