@@ -12,10 +12,7 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
     <table class="job-listing" th:each="job : ${jobs}">
-        <tr>
-            <td>ID</td>
-            <td th:text="${job.getId()}"></td>
-        </tr>
+
         <tr>
             <td>ID</td>
             <td th:text="${job.getId()}"></td>
@@ -26,7 +23,7 @@
         </tr>
         <tr>
             <td>Employer</td>
-            <td th:text="${job.getEmployer()}"></td>
+            <td th:text="${job.getEmployer()}"> </td>
         </tr>
         <tr>
             <td>Location</td>
